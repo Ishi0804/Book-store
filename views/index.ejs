@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookStore</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Find the book you've been looking for</h1>
+        <input type="text" placeholder="Search by book title">
+        <button>Search</button>
+        <a href="/add-Book">Add Book</a>
+    </header>
+    <main>
+        <% books.forEach(book => { %>
+            <div class="book">
+                <img src="<%= book.coverImage %>" alt="Book Cover">
+                <h2><%= book.title %></h2>
+                <p><%= book.author %></p>
+                <p><%= book.publisher %></p>
+                <a href="/edit-Book/<%= book._id %>">Edit</a>
+                <form action="/delete-book/<%= book._id %>" method="POST">
+                    <button type="submit">Delete</button>
+                </form>
+            </div>
+        <% }) %>
+    </main>
+    <footer>
+        <p>435 Tresdale Road, Entertainment District, Fictional City, XA 27402</p>
+    </footer>
+</body>
+</html>
